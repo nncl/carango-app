@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.fiap.carango.R;
 import com.fiap.carango.adapter.CarListAdapter;
 import com.fiap.carango.api.CarAPI;
+import com.fiap.carango.contants.Constants;
 import com.fiap.carango.model.Car;
 
 import java.util.List;
@@ -67,7 +68,7 @@ public class CarsFragment extends Fragment implements Callback<List<Car>> {
 
     private void loadCars() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://heiderlopes.com.br")
+                .baseUrl(Constants.getHeiderUrl())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
