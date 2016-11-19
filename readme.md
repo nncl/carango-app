@@ -1,6 +1,6 @@
 # Carango App
 
-A Native Android app build with Fragments, TabLayout and other stuff, such as:
+A Native Android app built with Fragments, TabLayout and other stuff, such as:
 
 - Navigation Bar
 - Tabs menu, like Instagram
@@ -9,4 +9,9 @@ A Native Android app build with Fragments, TabLayout and other stuff, such as:
 - Fragments
     - Remove `import android.app.Fragment` and replace it by **v4**: `import android.support.v4.app.Fragment`, otherwise it´d have problems into tablets
 - Adapters
-- Recycler View (dufuckssssthis n why)
+- **RecyclerView** instead of **ListView** - Of course there are good reasons, but you have to check if you should use it, if there is an existing project that already use it and your deadline is almost getting there, you know dough so...think about it
+- CardView
+- JSON Libraries
+    - Retrofit
+    - GSON, to convert attributes
+- Picasso Library to Images
