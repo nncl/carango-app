@@ -1,9 +1,19 @@
 package com.fiap.carango.contants;
 
-public class Constants {
-    private static final String heiderUrl = "http://heiderlopes.com.br";
+public enum Constants {
+    HeiderURL("http://www.heiderlopes.com.br");
 
-    public static String getHeiderUrl() {
-        return heiderUrl;
+    private String url;
+
+    Constants(String url) {
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

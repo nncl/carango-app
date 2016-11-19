@@ -68,7 +68,7 @@ public class CarsFragment extends Fragment implements Callback<List<Car>> {
 
     private void loadCars() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.getHeiderUrl())
+                .baseUrl(Constants.HeiderURL.getUrl())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
