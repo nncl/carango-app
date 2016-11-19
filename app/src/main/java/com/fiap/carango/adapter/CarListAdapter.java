@@ -34,7 +34,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarsView
         return new CarsViewHolder(v);
     }
 
-    // Bind list items
+    // Bind list items/information
     @Override
     public void onBindViewHolder(CarsViewHolder holder, int position) {
         holder.tvName.setText(cars.get(position).getName());
@@ -51,7 +51,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarsView
 
     @Override
     public int getItemCount() {
-        return 0;
+        return cars.size();
     }
 
     public static class CarsViewHolder extends RecyclerView.ViewHolder {

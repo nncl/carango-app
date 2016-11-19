@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Car {
 
-    @SerializedName("nome")
+    @SerializedName("nome") // if it is not the same name
     private String name;
     @SerializedName("desc")
     private String description;

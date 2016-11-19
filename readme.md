@@ -15,3 +15,5 @@ A Native Android app built with Fragments, TabLayout and other stuff, such as:
     - Retrofit
     - GSON, to convert attributes
 - Picasso Library to Images
+
+Heider: heiderlopes@gmail.com

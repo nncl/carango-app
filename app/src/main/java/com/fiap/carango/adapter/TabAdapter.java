@@ -31,9 +31,9 @@ public class TabAdapter extends FragmentStatePagerAdapter {
         Bundle b = new Bundle();
 
         if (position == 0) {
-            b.putString("type", "classic");
+            b.putString("type", "classicos");
         } else {
-            b.putString("type", "sport");
+            b.putString("type", "esportivos");
         }
 
         Fragment frag = new CarsFragment();
