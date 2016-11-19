@@ -8,3 +8,5 @@ A Native Android app build with Fragments, TabLayout and other stuff, such as:
 - `layoutbelow`
 - Fragments
     - Remove `import android.app.Fragment` and replace it by **v4**: `import android.support.v4.app.Fragment`, otherwise it´d have problems into tablets
+- Adapters
+- Recycler View (dufuckssssthis n why)
