@@ -1,6 +1,6 @@
 # Carango App
 
-Working with:
+A Native Android app build with Fragments, TabLayout and other stuff, such as:
 
 - Navigation Bar
 - Tabs menu, like Instagram
@@ -8,4 +8,3 @@ Working with:
 - `layoutbelow`
 - Fragments
     - Remove `import android.app.Fragment` and replace it by **v4**: `import android.support.v4.app.Fragment`, otherwise it´d have problems into tablets
-    
