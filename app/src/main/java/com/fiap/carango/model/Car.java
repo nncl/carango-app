@@ -1,5 +1,8 @@
 package com.fiap.carango.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -7,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * 2. Import libraries into app gradle
  */
 
-public class Car {
+public class Car implements Parcelable {
 
     @SerializedName("nome") // if it is not the same name
     private String name;
@@ -21,6 +24,36 @@ public class Car {
         this.description = description;
         this.image = image;
     }
+
+    protected Car(Parcel in) {
+        name = in.readString();
+        description = in.readString();
+        image = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeString(image);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Car> CREATOR = new Creator<Car>() {
+        @Override
+        public Car createFromParcel(Parcel in) {
+            return new Car(in);
+        }
+
+        @Override
+        public Car[] newArray(int size) {
+            return new Car[size];
+        }
+    };
 
     public String getName() {
         return name;

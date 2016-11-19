@@ -1,6 +1,7 @@
 package com.fiap.carango.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.fiap.carango.DetailActivity;
 import com.fiap.carango.R;
 import com.fiap.carango.adapter.CarListAdapter;
 import com.fiap.carango.api.CarAPI;
 import com.fiap.carango.contants.Constants;
+import com.fiap.carango.listener.OnClickListener;
 import com.fiap.carango.model.Car;
 
 import java.util.List;
@@ -80,12 +83,30 @@ public class CarsFragment extends Fragment implements Callback<List<Car>> {
         call.enqueue(this);
     }
 
-    @Override
-    public void onResponse(Call<List<Car>> call, Response<List<Car>> response) {
-        adapter = new CarListAdapter(getContext(), response.body());
-        rvCars.setAdapter(adapter);
+    /*
+    * Trazendo esse cara para ser trabalhado no fragment como se fosse um controller, e não no
+    * nosso adapter.
+    */
+
+    private OnClickListener onClickListener() {
+        return new OnClickListener() {
+            @Override
+            public void onClick(View v, int pos) {
+                // Pass data from here to next single screen
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+
+                // Transform our object into Parcelable (Car class)
+                intent.putExtra("car", adapter.getItem(pos));
+                startActivity(intent);
+            }
+        };
     }
 
+    @Override
+    public void onResponse(Call<List<Car>> call, Response<List<Car>> response) {
+        adapter = new CarListAdapter(getContext(), response.body(), onClickListener());
+        rvCars.setAdapter(adapter);
+    }
 
     // Handle error
     @Override

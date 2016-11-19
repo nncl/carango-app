@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fiap.carango.R;
+import com.fiap.carango.listener.OnClickListener;
 import com.fiap.carango.model.Car;
 import com.squareup.picasso.Picasso;
 
@@ -19,10 +20,12 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarsView
 
     private Context c;
     private List<Car> cars;
+    private OnClickListener clickListener;
 
-    public CarListAdapter(Context c, List<Car> cars) {
+    public CarListAdapter(Context c, List<Car> cars, OnClickListener clickListener) {
         this.c = c;
         this.cars = cars; // that's our f data, and now we bind this information
+        this.clickListener = clickListener; // O que aquela tela quer fazer com aquela informação
     }
 
     // Create viewholder
@@ -36,7 +39,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarsView
 
     // Bind list items/information
     @Override
-    public void onBindViewHolder(CarsViewHolder holder, int position) {
+    public void onBindViewHolder(final CarsViewHolder holder, final int position) {
         holder.tvName.setText(cars.get(position).getName());
         holder.tvDesc.setText(cars.get(position).getDescription());
 
@@ -47,6 +50,19 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarsView
                 .placeholder(R.mipmap.ic_launcher) // default image while image is loadind
                 .error(R.mipmap.ic_launcher) // default image when some error has ocurred whilte loading image from Webservice
                 .into(holder.ivImage);
+
+        if (clickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clickListener.onClick(holder.itemView, position);
+                }
+            });
+        }
+    }
+
+    public Car getItem(int pos) {
+        return cars.get(pos);
     }
 
     @Override

@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.fiap.carango.adapter.TabAdapter;
 
 public class MainActivity extends AppCompatActivity
