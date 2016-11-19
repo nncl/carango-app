@@ -5,7 +5,7 @@ public enum Constants {
 
     private final String url;
 
-    Constants(String url) {
+    private Constants(String url) {
         this.url = url;
     }
 
